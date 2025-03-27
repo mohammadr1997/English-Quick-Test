@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: white;
+  color: var(--color-black);
+  font-family: "playfair", serif;
+}
+@font-face {
+  font-family: "playfair";
+  src: url("../../../public/static/PlayfairDisplay-Regular.ttf")
+    format("truetype");
+}
+@keyframes goAndBack {
+  0% {
+    transform: translateX(45px) skewY(-55deg);
+  }
+  100% {
+    transform: translateX(-800px) skewY(-55deg);
+  }
+  /* 100% {
+    transform: translateX(45px) skewY(-55deg);
+  } */
+}
+.animation {
+  animation: goAndBack 1.25s ease-in-out infinite; /* Added easing and infinite looping */
+}
+
+.animation-all {
+  transition: all 0.75s ease-in-out; /* Adding transition for smoother animation */
+}
