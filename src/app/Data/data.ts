@@ -23,12 +23,12 @@ export const firstQuestions = [
     id: 3,
   },
   {
-    question: "I don't need to wash my car. Jim ...it for me already",
-    opt1: "has washed",
-    opt2: "washes",
-    opt3: "will wash",
-    correct: "has washed",
-    id: 4,
+    question: "She can't find her keys. She ... them somewhere in the house.",
+    opt1: "has lost",
+    opt2: "lost",
+    opt3: "will lose",
+    correct: "has lost",
+    id: 5,
   },
   {
     question:
@@ -48,7 +48,7 @@ export const secondQuestions = [
     opt2: "was cooking",
     opt3: "cooked",
     correct: "was cooking",
-    id:0
+    id: 0,
   },
   {
     question: "...do you like playing during long winter evenings?",
@@ -56,15 +56,15 @@ export const secondQuestions = [
     opt2: "why",
     opt3: "what",
     correct: "what",
-    id:1
+    id: 1,
   },
   {
-    question: "New York is the most interesting city",
+    question: "New York is the most interesting city ...",
     opt1: "visited",
     opt2: "was",
     opt3: "have visited",
     correct: "have visited",
-    id:2
+    id: 2,
   },
   {
     question: "you have been to spain,...?",
@@ -72,7 +72,7 @@ export const secondQuestions = [
     opt2: "you have",
     opt3: "have you",
     correct: "haven't you",
-    id:3
+    id: 3,
   },
   {
     question: "if you... shouting,I will be happy.",
@@ -80,7 +80,7 @@ export const secondQuestions = [
     opt2: "stop",
     opt3: "stops",
     correct: "stop",
-    id:4
+    id: 4,
   },
 ];
 

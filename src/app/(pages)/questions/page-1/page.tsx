@@ -10,6 +10,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { firstQuestions } from "@/app/Data/data";
+import { handleChange } from "../handleChange";
 import { useState } from "react";
 import { Metadata } from "next";
 const metadata: Metadata = {
@@ -20,23 +21,12 @@ const Page = () => {
   const [inCorrectCount, setIncorrectCount] = useState(0);
   const [noSelectedCount, setNoSelectedCount] = useState(15);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
-  const handleChange = (event, correctAnswer, id) => {
-    const selectedAnswer = event.target.value;
-    if (selectedAnswers[id]) return;
-    setSelectedAnswers((prev) => {
-      return [...prev, selectedAnswer];
-    });
-    if (selectedAnswer == correctAnswer) {
-      setCorrectCount((prevCount) => prevCount + 1);
-      setNoSelectedCount((prev) => prev - 1);
-    } else if (selectedAnswer !== correctAnswer && selectedAnswer !== "") {
-      setIncorrectCount((prevCount) => prevCount + 1);
-      setNoSelectedCount((prev) => prev - 1);
-    }
-  };
-
+  const userName = localStorage.getItem("name");
   return (
     <>
+      <h1 className=" text-center mt-1 mb-2 text-lg md:text-2xl bold">
+        <span className="text-lime-500">welcome</span> {userName}
+      </h1>
       <div className=" p-2 w-full flex justify-center">
         <FormControl>
           {firstQuestions.map((question, index) => {
@@ -62,7 +52,16 @@ const Page = () => {
                 </FormLabel>
                 <RadioGroup
                   onChange={(event) =>
-                    handleChange(event, question.correct, index)
+                    handleChange(
+                      event,
+                      question.correct,
+                      index,
+                      selectedAnswers,
+                      setSelectedAnswers,
+                      setCorrectCount,
+                      setNoSelectedCount,
+                      setIncorrectCount
+                    )
                   }
                   aria-labelledby="demo-radio-buttons-group-label"
                   value={selectedAnswers[index] || ""}
@@ -104,14 +103,23 @@ const Page = () => {
       </div>
 
       <div className="w-full hidden md:flex md:flex-row justify-between mt-4  md:px-5">
-        <Link href="/form">
+        {/* <Link href="/form">
           <Button>
             Previous Page <KeyboardBackspaceOutlinedIcon />
           </Button>
-        </Link>
+        </Link> */}
         ;
         <Link
-          href={`/questions/page-2?correct=${correctCount}&inCorrect=${inCorrectCount}&noSelected=${noSelectedCount}`}
+          // href={`/questions/page-2?correct=${correctCount}&inCorrect=${inCorrectCount}&noSelected=${noSelectedCount}`}
+          href={{
+            pathname: "/questions/page-2",
+            query: {
+              correct: correctCount,
+              inCorrect: inCorrectCount,
+              noSelected: noSelectedCount,
+              userName: userName,
+            },
+          }}
         >
           <Button>
             Next Page <EastOutlinedIcon />
@@ -121,17 +129,25 @@ const Page = () => {
       <div className="w-full  flex flex-col  justify-center md:hidden   md:px-5">
         <Link
           className="mx-auto mt-2 mb-2"
-          href={`/questions/page-2?correct=${correctCount}&inCorrect=${inCorrectCount}&noSelected=${noSelectedCount}`}
+          href={{
+            pathname: "/questions/page-2",
+            query: {
+              correct: correctCount,
+              inCorrect: inCorrectCount,
+              noSelected: noSelectedCount,
+              userName: userName,
+            },
+          }}
         >
           <Button>
             Next Page <EastOutlinedIcon />
           </Button>
         </Link>
-        <Link className="mx-auto mt-2 mb-2" href="/form">
+        {/* <Link className="mx-auto mt-2 mb-2" href="/form">
           <Button>
             Previous Page <KeyboardBackspaceOutlinedIcon />
           </Button>
-        </Link>
+        </Link> */}
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import React from "react";
 import Radio from "@mui/material/Radio";
 import { useState } from "react";
 import Link from "next/link";
+import { handleChange } from "../handleChange";
 import Button from "@/app/Button";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
@@ -15,30 +16,26 @@ import { useSearchParams } from "next/navigation";
 import { thirdQuestions } from "@/app/Data/data";
 const Page = () => {
   const searchParams = useSearchParams();
-  const correct = +searchParams.get("correct");
-  const inCorrect = +searchParams.get("inCorrect");
-  const noSelected = +searchParams.get("noSelected");
+  const correct = searchParams.get("correct")
+    ? +searchParams.get("correct")
+    : "";
+  const inCorrect = searchParams.get("inCorrect")
+    ? +searchParams.get("inCorrect")
+    : "";
+  const noSelected = searchParams.get("noSelected")
+    ? +searchParams.get("noSelected")
+    : "";
+  const userName = searchParams.get("userName") && searchParams.get("userName");
   const [correctCount, setCorrectCount] = useState(correct);
   const [inCorrectCount, setIncorrectCount] = useState(inCorrect);
   const [noSelectedCount, setNoSelectedCount] = useState(noSelected);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
-  const handleChange = (event, correctAnswer, id) => {
-    const selectedAnswer = event.target.value;
-    if (selectedAnswers[id]) return;
-    setSelectedAnswers((prev) => {
-      return [...prev, selectedAnswer];
-    });
-    if (selectedAnswer == correctAnswer) {
-      setCorrectCount((prevCount) => prevCount + 1);
-      setNoSelectedCount((prev) => prev - 1);
-    } else if (selectedAnswer !== correctAnswer && selectedAnswer !== "") {
-      setIncorrectCount((prevCount) => prevCount + 1);
-      setNoSelectedCount((prev) => prev - 1);
-    }
-  };
 
   return (
     <>
+      <h1 className=" text-center mt-1 mb-2 text-lg md:text-2xl bold">
+        <span className="text-lime-500">welcome</span> {userName}
+      </h1>
       <div className=" p-2 w-full flex justify-center">
         <FormControl>
           {thirdQuestions.map((question, index) => {
@@ -64,7 +61,16 @@ const Page = () => {
                 </FormLabel>
                 <RadioGroup
                   onChange={(event) =>
-                    handleChange(event, question.correct, index)
+                    handleChange(
+                      event,
+                      question.correct,
+                      index,
+                      selectedAnswers,
+                      setSelectedAnswers,
+                      setCorrectCount,
+                      setNoSelectedCount,
+                      setIncorrectCount
+                    )
                   }
                   aria-labelledby="demo-radio-buttons-group-label"
                   value={selectedAnswers[index] || ""}
@@ -111,20 +117,36 @@ const Page = () => {
           </Button>
         </Link>
         <Link
-          href={`/questions/result?correct=${correctCount}&inCorrect=${inCorrectCount}&noSelected=${noSelectedCount}`}
+          href={{
+            pathname: "/questions/result",
+            query: {
+              correct: correctCount,
+              inCorrect: inCorrectCount,
+              noSelected: noSelectedCount,
+              userName: userName,
+            },
+          }}
         >
           <Button>
-            Next Page <EastOutlinedIcon />
+            Result <EastOutlinedIcon />
           </Button>
         </Link>
       </div>
       <div className="w-full  flex flex-col  justify-center md:hidden   md:px-5">
         <Link
           className="mx-auto mt-2 mb-2"
-          href={`/questions/result?correct=${correctCount}&inCorrect=${inCorrectCount}&noSelected=${noSelectedCount}`}
+          href={{
+            pathname: "/questions/result",
+            query: {
+              correct: correctCount,
+              inCorrect: inCorrectCount,
+              noSelected: noSelectedCount,
+              userName: userName,
+            },
+          }}
         >
           <Button>
-            Next Page <EastOutlinedIcon />
+            Result <EastOutlinedIcon />
           </Button>
         </Link>
         <Link className="mx-auto mt-2 mb-2" href="/questions/page-2">

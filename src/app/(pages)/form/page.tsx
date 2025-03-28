@@ -2,11 +2,12 @@
 
 import * as React from "react";
 import { useState } from "react";
-import Link from "next/link.js";
+
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import TextField from "@mui/material/TextField";
+
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import InputAdornment from "@mui/material/InputAdornment";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -25,6 +26,7 @@ export default function Form() {
   const [middleName, setMiddleName] = useState<null | string>("");
   const [lastName, setLastName] = useState<null | string>("");
   const [showPassword, setShowPassword] = useState(false);
+
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
   const handleShowPassword = () => {
@@ -45,6 +47,7 @@ export default function Form() {
       middleName &&
       lastName
     ) {
+      localStorage.setItem("name", middleName);
       setEmailInput("");
       setLastName("");
       setMiddleName("");
