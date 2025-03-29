@@ -21,7 +21,9 @@ const Page = () => {
   const [inCorrectCount, setIncorrectCount] = useState(0);
   const [noSelectedCount, setNoSelectedCount] = useState(15);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
-  const userName = localStorage.getItem("name") && localStorage.getItem("name");
+  const userName = localStorage.getItem("name")
+    ? localStorage.getItem("name")
+    : "";
   return (
     <>
       <h1 className=" text-center mt-1 mb-2 text-lg md:text-2xl bold">

@@ -41,9 +41,9 @@ export default function RootLayout({
         </header>
         <hr />
         {children}
-        <footer className="w-full -mt-[20rem]  md:mt-[59px] ">
+        <footer className="w-full -mt-[20rem]  md:mt-[59px]  ">
           <div
-            className=" bg-sky-50 h-96 text-center mt-10 flex flex-col justify-center align-middle"
+            className=" bg-sky-50  h-96 text-center mt-10 flex flex-col justify-center align-middle"
             style={{ borderRadius: "100% 100% 0% 65% / 100% 100% 0% 2% " }}
           >
             <div>
@@ -64,7 +64,7 @@ export default function RootLayout({
               </span>
               <span className="mx-2 text-base md:text-xl">
                 <a
-                  className="hover:text-lime-500"
+                  className="hover:text-lime-500 "
                   href="mailto:webnerd2024@gmail.com"
                 >
                   webnerd2024
