@@ -41,57 +41,59 @@ export default function RootLayout({
         </header>
         <hr />
         {children}
-      </body>
-      <footer className="w-full -mt-[20rem]  md:mt-[59px] ">
-        <div
-          className=" bg-sky-50 h-96 text-center mt-10 flex flex-col justify-center align-middle"
-          style={{ borderRadius: "100% 100% 0% 65% / 100% 100% 0% 2% " }}
-        >
-          <div>
-            <span>
-              <EmailOutlinedIcon
-                sx={{
-                  backgroundColor: "#86EF6E",
-                  borderRadius: "50%",
-                  padding: "5px",
-                  color: "white",
+        <footer className="w-full -mt-[20rem]  md:mt-[59px] ">
+          <div
+            className=" bg-sky-50 h-96 text-center mt-10 flex flex-col justify-center align-middle"
+            style={{ borderRadius: "100% 100% 0% 65% / 100% 100% 0% 2% " }}
+          >
+            <div>
+              <span>
+                <EmailOutlinedIcon
+                  sx={{
+                    backgroundColor: "#86EF6E",
+                    borderRadius: "50%",
+                    padding: "5px",
+                    color: "white",
 
-                  "@media all and(max-width:540px)": { fontSize: "26px" },
-                  "@media all and (min-width:540.999px)": { fontSize: "35px" },
-                }}
-              />
-            </span>
-            <span className="mx-2 text-base md:text-xl">
-              <a
-                className="hover:text-lime-500"
-                href="mailto:webnerd2024@gmail.com"
-              >
-                webnerd2024
-              </a>
-            </span>
-          </div>
-          <div className="flex flex-col md:flex-row justify-center text-base md:text-xl">
-            <span className=" mx-2 mt-3 text-center flex justify-center md:border-r-2">
-              <span className=" mt-[2px] md:mt-0 w-[14px] h-[14px] md:w-[20px] md:h-[20px] flex items-center justify-center border-1 rounded-full  text-xs md:text-sm ">
-                C
+                    "@media all and(max-width:540px)": { fontSize: "26px" },
+                    "@media all and (min-width:540.999px)": {
+                      fontSize: "35px",
+                    },
+                  }}
+                />
               </span>
-              <span className="mx-2 -mt-[4px] md:-mt-1">
-                english-quick-test
-              </span>{" "}
-            </span>
-            <Link
-              href="/privacy"
-              className=" hover:text-lime-500 mx-2 mt-2 md:border-r-2 px-2"
-            >
-              privacy policy
-            </Link>
+              <span className="mx-2 text-base md:text-xl">
+                <a
+                  className="hover:text-lime-500"
+                  href="mailto:webnerd2024@gmail.com"
+                >
+                  webnerd2024
+                </a>
+              </span>
+            </div>
+            <div className="flex flex-col md:flex-row justify-center text-base md:text-xl">
+              <span className=" mx-2 mt-3 text-center flex justify-center md:border-r-2">
+                <span className=" mt-[2px] md:mt-0 w-[14px] h-[14px] md:w-[20px] md:h-[20px] flex items-center justify-center border-1 rounded-full  text-xs md:text-sm ">
+                  C
+                </span>
+                <span className="mx-2 -mt-[4px] md:-mt-1">
+                  english-quick-test
+                </span>{" "}
+              </span>
+              <Link
+                href="/privacy"
+                className=" hover:text-lime-500 mx-2 mt-2 md:border-r-2 px-2"
+              >
+                privacy policy
+              </Link>
 
-            <Link href="/about" className="hover:text-lime-500 mx-2 mt-2">
-              about us
-            </Link>
+              <Link href="/about" className="hover:text-lime-500 mx-2 mt-2">
+                about us
+              </Link>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </body>
     </html>
   );
 }

@@ -44,8 +44,7 @@ export default function RootLayout({
         </header>
         <hr />
         {children}
-      </body>
-      <footer className="w-full mt-10  md:mt-[59px] ">
+        <footer className="w-full mt-10  md:mt-[59px] ">
         <div
           className=" bg-sky-50 h-96 text-center mt-10 flex flex-col justify-center align-middle"
           style={{ borderRadius: "100% 100% 0% 65% / 100% 100% 0% 2% " }}
@@ -97,6 +96,8 @@ export default function RootLayout({
           </div>
         </div>
       </footer>
+      </body>
+     
     </html>
   );
 }
