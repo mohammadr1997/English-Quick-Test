@@ -5,10 +5,10 @@
 
 
 ### Description
-* header contains logo and menu which navigates to development page and home *
-* footer contains of about page and privacy policy page *
-* user clicks on start english test button ,heads to register page after inserting valid email / password /name can start quiz-test  *
-* three pages of questions each page contains 5 questions  *
-* on third question-page  you see button result  *
-* result page will show you a piechart / correct answers /incorrect answers / no selected answers  *
+* header contains logo and menu which navigates to development page and home 
+* footer contains of about page and privacy policy page 
+* user clicks on start english test button ,heads to register page after inserting valid email / password /name can start quiz-test  
+* three pages of questions each page contains 5 questions  
+* on third question-page  you see button result  
+* result page will show you a piechart / correct answers /incorrect answers / no selected answers  
 
