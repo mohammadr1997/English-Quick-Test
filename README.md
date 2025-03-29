@@ -4,7 +4,7 @@
 > > > aim of this project was to enternalize beginning concepts of nextjs
 
 
-###Description
+### Description
 * header contains logo and menu which navigates to development page and home *
 * footer contains of about page and privacy policy page *
 * user clicks on start english test button ,heads to register page after inserting valid email / password /name can start quiz-test  *
