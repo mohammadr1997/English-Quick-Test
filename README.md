@@ -2,6 +2,8 @@
 > suitable for pc and mobile
 > > coded by React | Typescrip | Tailwind | Mui | Nextjs
 > > > aim of this project was to enternalize beginning concepts of nextjs
+
+
 ###Description
 * header contains logo and menu which navigates to development page and home *
 * footer contains of about page and privacy policy page *
